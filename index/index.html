@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="calendarioRegistro.js"></script>
+</head>
+
+<body>
+    <div id="conteiner-main">
+        <!-- PRIMERIA ETAPA -->
+        <div id="formulario">
+            <div class="etapa">
+                <section class="secao">
+                    <section class="conteiner">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="CPF">CPF</label>
+                        <input type="text" id="CPF" name="CPF" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="Data">Data de nascimento</label>
+                        <input type="date" id="Data" name="Data"><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="placaDoAutomovel">Numero Placa</label>
+                        <input type="number" id="placaDoAutomovel" name="placaDoAutomovel"><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="numeroDoTelefone">WhatsApp</label>
+                        <input type="number" id="numeroDoTelefone" name="numeroDoTelefone"><br>
+                    </section>
+
+                    <button onclick="proximaEtapa(1)">Avançar</button>
+                </section>
+            </div>
+
+            <!-- 2 SEGUNDA ETAPA -->
+            <div class="etapa" style="display:none;">
+                <section class="secao">
+                    <section class="conteiner">
+                        <label for="nome">Placa:</label>
+                        <input type="text" id="nome2" name="placa" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="CPF">Cor:</label>
+                        <input type="text" id="serie" name="cor" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="Data">Modelo:</label>
+                        <input type="number" id="data" name="modelo"><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="transportadora">Você é de uma transportadora?</label>
+                        <input type="checkbox" id="transportadora" onclick="mostrarCamposTransportadora()">
+                    </section>
+
+                    <!-- Campos adicionais para transportadora (inicialmente ocultos) -->
+                    <div id="camposTransportadora" style="display: none;">
+                        <section class="conteiner">
+                            <label for="endereco">Endereço:</label>
+                            <input type="text" id="endereco" name="endereco"><br>
+                        </section>
+
+                        <section class="conteiner">
+                            <label for="cnpj">CNPJ:</label>
+                            <input type="text" id="cnpj" name="cnpj"><br>
+                        </section>
+
+                        <section class="conteiner">
+                            <label for="telefone">Telefone:</label>
+                            <input type="text" id="telefone" name="telefone"><br>
+                        </section>
+                    </div>
+
+                    <div class="button-container">
+                        <button onclick="etapaAnterior(2)" class="voltar">Voltar</button>
+                        <button onclick="proximaEtapa(2)" class="avancar">Avançar</button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TERCEIRA ETAPA -->
+            <div class="etapa" style="display:none;">
+                <section class="secao">
+                    <section class="conteiner">
+                        <label for="nome">NF</label>
+                        <input type="text" id="nome2" name="NF" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="CPF">Série</label>
+                        <input type="text" id="serie" name="serie" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="Data">Chave de acesso </label>
+                        <input type="number" id="data" name="chaveAcesso"><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="placaDoAutomovel">Peso Total: </label>
+                        <input type="number" id="pesoT" name="pesoT" onchange="salvarDados()"><br>
+
+                    </section>
+                    <button onclick="etapaAnterior(3)">Voltar</button>
+                    <button id="btnCadastrar" onclick="cadastrar()">Cadastrar</button>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>

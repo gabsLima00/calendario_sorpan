@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(IMG/Backgraund.png);
+    background-size: cover;
+    background-position: center center; 
+    background-attachment: fixed;
+}
+#formulario {
+    max-width: 800px;
+    margin: 200px auto;
+}
+
+
+.secao {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: -200px;
+
+
+}
+
+.conteiner {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 25px;
+    letter-spacing:2px;
+    font-family: Impact, 'sans-serif', sans-serif;
+}
+
+.conteiner label {
+    min-width: 200px;
+    margin-right: 10px;
+
+
+}
+
+.conteiner input[type="text"],
+.conteiner input[type="date"],
+.conteiner input[type="number"] {
+    flex: 1px;
+    padding: 6px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    
+}
+
+button {
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: #f7ef00;
+    color: red;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Adicionado margem superior para separar dos campos */
+}
+
+.button-container button {
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #f7ef00;
+    color: red;
+}
