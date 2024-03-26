@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%; /* Alterado para ocupar toda a largura da tela */
+    height: 100%;
+    margin: 0;
+
+    
+}
+
+form {
+    width: 90%; /* Reduz a largura do formulário para 90% da largura da tela */
+    max-width: 400px; /* Define uma largura máxima para o formulário */
+    margin: auto; /* Centraliza o formulário verticalmente */
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 150px;
+}
+
+input {
+    display: block;
+    margin: 20px auto;
+    width: 100%; /* Alterado para ocupar toda a largura do container pai */
+    max-width: 300px; /* Define uma largura máxima para os campos de entrada */
+    height: 50px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+#entrar {
+    background-color: #a9a8a4;
+    border: none;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+    border-radius: 6px;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s all;
+    width: 100%; 
+    max-width: 300px; 
+    margin: 20px auto; 
+    background-color: red;
+    color: #fff;
+}
+
+#entrar:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    background-color: #f7ef00;
+    color: red;
+    
+}
+
+h3 {
+    font-size: 30px;
+    font-family: Impact, 'sans-serif', sans-serif;
+    letter-spacing: 3px;
+    color: black;
+}
+
+input[type="text"] {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+#login,
+#senha {
+    cursor: pointer;
+    font-size: 20px;
+    font-family: inherit;
+    border: 1px solid #464646;
+    border-radius: 5px;
+    width: 100%; 
+    max-width: 300px; 
+    margin: 20px auto; 
+}
+

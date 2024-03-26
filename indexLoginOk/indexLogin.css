@@ -1,192 +1,108 @@
-*, *:before, *:after { 
-    margin:0;
-    padding:0;
-    font-family: Arial,sans-serif;
-  }
-  
-  body{
-    margin:10px;
-    font-family: Impact, 'sans-serif', sans-serif;
-    background-image: url(IMG/Backgraund.png);
-    background-size: cover;
-    background-position: center center; 
-    background-attachment: fixed;
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  font-family: Arial, sans-serif;
 }
-  
-  a{
-    text-decoration: none;
-  }
-  
-  /* esconde as ancoras da tela */
-  a.links{
-    display: none;
-  }
-  
-  /* content que contem os formulários */
-  .content{
-    width: 500px;
-    margin: 0px auto;
-    position: relative; 
-  }
-  
-  /* formatando o cabeçalho dos formulários */
-  h1{
-    font-size: 48px;
-    color: red;
-    padding: 10px 0;
-    font-family: Arial,sans-serif;
-    font-weight: bold;
-    text-align: center;
-    padding-bottom: 30px;
-  }
-  h1:after{
-    content: ' ';
-    display: block;
-    width: 100%;
-    height: 2px;
-    margin-top: 10px;
-    background: -webkit-linear-gradient(left, rgb(189, 147, 147) 0%,rgba(189, 147, 147, 0.8) 20%,rgb(189, 147, 147) 53%,rgba(189, 147, 147, 0.8) 79%,rgb(189, 147, 147) 100%); 
-    background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
-  }
-  
-  p{
-    margin-bottom:15px;
-  }
-  p:first-child{
-    margin: 0px;
-  }
 
-  
-  /**** advanced input styling ****/
-  /* placeholder */
-  ::-webkit-input-placeholder  {
-    color: #bebcbc; 
-    font-style: italic;
-  }
-  input:-moz-placeholder,
-  textarea:-moz-placeholder{
-    color: #bebcbc;
-    font-style: italic;
-  } 
-  input {
-    outline: none;
-  }
-  
-  input:not([type="checkbox"]){
-    width: 95%;
-    margin-top: 4px;
-    padding: 10px;  
-    border: 1px solid #b2b2b2;
-    
+body {
+  margin: 10px;
+  font-family: Impact, 'sans-serif', sans-serif;
+  background-image: url(IMG/Backgraund.png);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
 
-  }
-  
-  /*estilo do botão submit */
-  input[type="submit"]{
-    width: 100%!important;
-    cursor: pointer;  
-    background: rgba(255, 0, 0, 0.993);
-    padding: 8px 5px;
-    color: #fff;
-    font-size: 20px;  
+a {
+  text-decoration: none;
+}
 
-    margin-bottom: 10px;     
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    transition: all 0.2s linear;
-  }
-  input[type="submit"]:hover{
-    background: rgb(255, 65, 65);
+/* Hide anchor links */
+a.links {
+  display: none;
+}
 
-  }
-  
-  /*marcando os links para mudar de um formulário para outro */
-  .link{
-    position: absolute;
-    background: #e1eaeb;
-    color: #7f7c7c;
-    left: 0px;
-    height: 20px;
-    width: 440px;
-    padding: 17px 30px 20px 30px;
-    font-size: 16px;
-    text-align: right;
-    border-top: 1px solid #dbe5e8;
-  
-    -webkit-border-radius: 0 0  5px 5px;
-    border-radius: 0 0  5px 5px;
-  }
-  .link a {
-    font-weight: bold;
-    color: #333;
-    /* padding: 6px;
-    color: rgb(193, 29, 29);
-    margin-left: 10px;
-    border: 1px solid #000000;
-  
-    -webkit-border-radius: 4px;
-    border-radius: 4px;   */
+/* Content container */
+.content {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  }
-  .link a:hover {
-    color: #d73939;
-  }
+/* Form header */
+h1 {
+  font-size: 32px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form input fields */
+input[type="text"],
+input[type="number"],
+input[type="submit"] {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #b2b2b2;
+  border-radius: 5px;
+}
+
+/* Submit button */
+input[type="submit"] {
+  cursor: pointer;
+  background: rgba(255, 0, 0, 0.993);
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.2s linear;
+}
+
+input[type="submit"]:hover {
+  background: rgb(255, 65, 65);
+}
+
+/* Link to signup */
+.link {
+  text-align: center;
+}
+
+.link a {
+  color: #333;
+  font-weight: bold;
+}
+
+.link a:hover {
+  color: #d73939;
+}
   
   /* estilos para para ambos os formulários */
   #cadastro, 
-  #login{
+  #login {
     position: absolute;
-    
-    width: 88%; 
+    width: 88%;
     padding: 18px 6% 60px 6%;
-    margin: 0 0 35px 0;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    max-width: 500px; /* Define uma largura máxima para o formulário */
     background: rgba(247, 247, 247, 0.137);
     border: 2px solid #ccc;
     border-radius: 5px;
   }
+  
+  /* Estilos para os inputs */
+  input:not([type="checkbox"]) {
+    width: 100%; /* Ocupa 100% da largura do seu contêiner */
+    margin-top: 10px; /* Aumenta a margem superior */
+    padding: 12px; /* Aumenta o preenchimento */
+    border: 1px solid #b2b2b2;
+    box-sizing: border-box; /* Garante que a largura inclua a borda e o preenchimento */
+  }
+  
+  /* Estilos para o botão de envio */
+  
 
   /*fadeInLeft*/
-  @-webkit-keyframes fadeInLeft {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateX(-20px);
-    }
-    100% {
-      opacity: 1;
-      -webkit-transform: translateX(0);
-    }
-  }
   
-  @keyframes fadeInLeft {
-    0% {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  /*fadeOutLeft*/
-  @-webkit-keyframes fadeOutLeft {
-    0% {
-      opacity: 1;
-      -webkit-transform: translateX(0);
-    }
-    100% {
-      opacity: 0;
-      -webkit-transform: translateX(-20px);
-    }
-  }
-  
-  @keyframes fadeOutLeft {
-    0% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-  }

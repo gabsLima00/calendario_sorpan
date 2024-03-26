@@ -38,9 +38,12 @@
                     <section class="conteiner">
                         <label for="numeroDoTelefone">WhatsApp</label>
                         <input type="number" id="numeroDoTelefone" name="numeroDoTelefone"><br>
+                        
                     </section>
-
-                    <button onclick="proximaEtapa(1)">Avançar</button>
+                    <div class="button-container">
+                        <a href="/indexLoginOk/indexLogin.html"><button  class="voltar">Voltar</button></a>
+                        <button onclick="proximaEtapa(1)" class="avancar">Avançar</button>
+                    </div>
                 </section>
             </div>
 
@@ -115,8 +118,10 @@
                         <input type="number" id="pesoT" name="pesoT" onchange="salvarDados()"><br>
 
                     </section>
-                    <button onclick="etapaAnterior(3)">Voltar</button>
-                    <button id="btnCadastrar" onclick="cadastrar()">Cadastrar</button>
+                    <div class="button-container">
+                        <button onclick="etapaAnterior(3)">Voltar</button>
+                        <button id="btnCadastrar" onclick="cadastrar()">Cadastrar</button>
+                    </div>
                 </section>
             </div>
         </div>
