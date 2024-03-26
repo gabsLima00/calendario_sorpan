@@ -9,7 +9,9 @@
 
 body {
   margin: 10px;
-  font-family: Impact, 'sans-serif', sans-serif;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.705);
+  font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-image: url(IMG/Backgraund.png);
   background-size: cover;
   background-position: center center;
@@ -59,6 +61,7 @@ input[type="submit"] {
   color: #fff;
   font-size: 20px;
   transition: all 0.2s linear;
+  border-radius: 50px;
 }
 
 input[type="submit"]:hover {
@@ -90,9 +93,10 @@ input[type="submit"]:hover {
     background: rgba(247, 247, 247, 0.137);
     border: 2px solid #ccc;
     border-radius: 5px;
+    margin: 140px auto;
   }
   
-  /* Estilos para os inputs */
+  Estilos para os inputs
   input:not([type="checkbox"]) {
     width: 100%; /* Ocupa 100% da largura do seu contêiner */
     margin-top: 10px; /* Aumenta a margem superior */
@@ -100,9 +104,4 @@ input[type="submit"]:hover {
     border: 1px solid #b2b2b2;
     box-sizing: border-box; /* Garante que a largura inclua a borda e o preenchimento */
   }
-  
-  /* Estilos para o botão de envio */
-  
-
-  /*fadeInLeft*/
   

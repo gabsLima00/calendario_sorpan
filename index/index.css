@@ -9,8 +9,8 @@ body {
     background-attachment: fixed;
 }
 #formulario {
-    max-width: 800px;
-    margin: 200px auto;
+    max-width: 700px;
+    margin: 180px auto;
 }
 
 
@@ -29,8 +29,10 @@ body {
     align-items: center;
     margin-bottom: 10px;
     font-size: 25px;
-    letter-spacing:2px;
-    font-family: Impact, 'sans-serif', sans-serif;
+    letter-spacing:px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.842);
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .conteiner label {
@@ -70,6 +72,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+ 
 }
 
 .button-container button {
@@ -77,9 +80,10 @@ body {
     background-color: red;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 70px;
     cursor: pointer;
     position: relative;
+    
 }
 
 .button-container button:hover {
@@ -92,7 +96,19 @@ a{
     background-color: red;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 70px;
     cursor: pointer;
     position: relative;
+    border-radius: 55px;
+}
+
+h1{
+    font-size: 32px;
+    color: rgb(218, 0, 0);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing:px;
+ 
 }
