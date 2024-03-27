@@ -13,7 +13,7 @@
     <div id="conteiner-main">
         <!-- PRIMERIA ETAPA -->
         <div id="formulario">
-            
+
             <div class="etapa">
                 <div class="titulacao">
                     <section class="domentos">
@@ -27,7 +27,7 @@
                     </section>
 
                     <section class="conteiner">
-                        <label for="CPF">CPF</label>
+                        <label for="CPF">CPF:</label>
                         <input type="text" id="CPF" name="CPF" required><br>
                     </section>
 
@@ -37,17 +37,17 @@
                     </section>
 
                     <section class="conteiner">
-                        <label for="placaDoAutomovel">Numero Placa</label>
+                        <label for="placaDoAutomovel">N° da carteira:</label>
                         <input type="number" id="placaDoAutomovel" name="placaDoAutomovel"><br>
                     </section>
 
                     <section class="conteiner">
-                        <label for="numeroDoTelefone">WhatsApp</label>
+                        <label for="numeroDoTelefone">WhatsApp:</label>
                         <input type="number" id="numeroDoTelefone" name="numeroDoTelefone"><br>
-                        
+
                     </section>
                     <div class="button-container">
-                        <a href="/indexLoginOk/indexLogin.html"><button  class="voltar">Voltar</button></a>
+                        <a href="/indexLoginOk/indexLogin.html"><button class="voltar">Voltar</button></a>
                         <button onclick="proximaEtapa(1)" class="avancar">Avançar</button>
                     </div>
                 </section>
@@ -57,7 +57,7 @@
             <div class="etapa" style="display:none;">
                 <H1>EMPRESA</H1>
                 <section class="secao">
-                    
+
                     <section class="conteiner">
                         <label for="nome">Placa:</label>
                         <input type="text" id="nome2" name="placa" required><br>
@@ -70,7 +70,30 @@
 
                     <section class="conteiner">
                         <label for="Data">Modelo:</label>
-                        <input type="number" id="data" name="modelo"><br>
+                        <input type="text" id="data" name="modelo"><br>
+                    </section>
+
+                    <section class="container">
+                        <label for="caminho">Tipo de carga:</label>
+                        <select type="text" id="caminho" name="caminho" placeholder="Clique para selecionar" required>
+                        <ul class="options">
+                            <option selected disabled>Opções</option>
+                            <option value="seco">Seco</option>
+                            <option value="molhado">Congelado </option>
+                            
+                        </ul>
+                        </select>
+                    </section>
+                    <section class="container">
+                        <label for="caminho">Forma de descarregamento:</label>
+                        <select type="text" id="caminho" name="caminho" placeholder="Clique para selecionar" required>
+                        <ul class="options">
+                            <option selected disabled>Opções</option>
+                            <option value="descarregamentoTraseiro">Traseira </option>
+                            <option value="descarregamentoLateral">Lateral</option>
+
+                        </ul>
+                        </select>
                     </section>
 
                     <section class="conteiner">

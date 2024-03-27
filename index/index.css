@@ -10,7 +10,7 @@ body {
 }
 #formulario {
     max-width: 700px;
-    margin: 180px auto;
+    margin: 150px auto;
 }
 
 
@@ -30,8 +30,9 @@ body {
     margin-bottom: 10px;
     font-size: 25px;
     letter-spacing:px;
+    margin: 10px;
     font-weight: bold;
-    color: rgba(0, 0, 0, 0.842);
+    color: rgba(0, 0, 0, 0.705);
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -111,4 +112,57 @@ h1{
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing:px;
  
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container label {
+    min-width: 200px;
+    margin-right: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.705);
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container select {
+    
+    flex: 1 1 auto; 
+    margin: 4px;
+    padding: 6px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.705);
+}
+
+/* Estilos para a lista de opções */
+.container .options {
+    list-style: none;
+}
+
+.container .options li {
+    padding: 5px 10px;
+}
+
+.container .options li:hover {
+    background-color: #f7ef00;
+    color: red;
+}
+
+@media screen and (max-width: 768px) {
+
+    .container label {
+        margin-bottom: 5px;
+        min-width: auto;
+    }
+
+    .container select {
+        margin-top: 5px;
+    }
 }
