@@ -45,7 +45,7 @@ h1 {
 
 /* Form input fields */
 input[type="text"],
-input[type="number"],
+input[type="date"],
 input[type="submit"] {
   width: 100%;
   margin-bottom: 15px;

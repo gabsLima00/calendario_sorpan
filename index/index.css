@@ -1,19 +1,25 @@
+/* Define um box-sizing global para todas as caixas, garantindo que o padding e a borda não alterem o tamanho total */
 * {
     box-sizing: border-box;
 }
-
+/* Estilos para o corpo da página */
 body {
     background-image: url(IMG/Backgraund.png);
     background-size: cover;
     background-position: center center; 
     background-attachment: fixed;
 }
-#formulario {
+/* Estilos para o contêiner principal */
+#formulario1{
+    max-width: 700px;
+    margin: 115px auto;
+}
+#formulario{
     max-width: 700px;
     margin: 150px auto;
 }
 
-
+/* Estilos para as seções do formulário */
 .secao {
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -23,7 +29,7 @@ body {
 
 
 }
-
+/* Estilos para os contêineres dentro das seções */
 .conteiner {
     display: flex;
     align-items: center;
@@ -35,17 +41,18 @@ body {
     color: rgba(0, 0, 0, 0.705);
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
+/* Estilos para os rótulos dentro dos contêineres */
 .conteiner label {
     min-width: 200px;
     margin-right: 10px;
 
 
 }
-
+/* Estilos para os campos de entrada dentro dos contêineres */
 .conteiner input[type="text"],
 .conteiner input[type="date"],
-.conteiner input[type="number"] {
+.conteiner input[type="number"],
+.conteiner input[type="tel"] {
     flex: 1 1 auto; 
     margin: 4px;
     padding: 6px;
@@ -53,6 +60,7 @@ body {
     border-radius: 3px;
     box-sizing: border-box; 
 }
+/* Estilos para os botões */
 
 
 @media screen and (max-width: 768px) {
@@ -91,7 +99,7 @@ body {
     background-color: #f7ef00;
     color: red;
 }
-
+/* Estilos para os links */
 a{
     text-decoration: none;
     background-color: red;
@@ -107,7 +115,7 @@ h1{
     font-size: 32px;
     color: rgb(218, 0, 0);
     font-weight: bold;
-    text-align: center;
+    text-align: right;
     margin-bottom: 20px;
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing:px;
@@ -122,7 +130,7 @@ h1{
 
 .container label {
     min-width: 200px;
-    margin-right: 10px;
+    margin-left: 8px;
     font-size: 25px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.705);
@@ -165,4 +173,12 @@ h1{
     .container select {
         margin-top: 5px;
     }
+}
+.container input[type="date"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+}
+img{
+    
 }

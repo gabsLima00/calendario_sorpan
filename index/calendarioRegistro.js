@@ -61,3 +61,4 @@ function converterParaMaiusculas() {
 }
 
 window.addEventListener('load', converterParaMaiusculas);
+
