@@ -19,9 +19,9 @@ function etapaAnterior() {
     document.getElementsByClassName('etapa')[etapaAtual - 1].style.display = 'block';
 }
 
-document.getElementById("nome").addEventListener("input", function() {
-    this.value = this.value.toUpperCase();
-})
+// document.getElementById("nome").addEventListener("input", function() {
+//     this.value = this.value.toUpperCase();
+// })
 function mostrarCamposTransportadora() {
     var checkbox = document.getElementById('transportadora');
     var camposTransportadora = document.getElementById('camposTransportadora');
@@ -61,4 +61,6 @@ function converterParaMaiusculas() {
 }
 
 window.addEventListener('load', converterParaMaiusculas);
+
+
 

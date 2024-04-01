@@ -36,23 +36,23 @@
                     <section class="container">
                         <label for="caminho">Tipo de carga:</label>
                         <select type="text" id="caminho" name="caminho" placeholder="Clique para selecionar" required>
-                        <ul class="options">
-                            <option selected disabled>Opções</option>
-                            <option value="seco">Seco</option>
-                            <option value="molhado">Congelado </option>
-                            
-                        </ul>
+                            <ul class="options">
+                                <option selected disabled>Opções</option>
+                                <option value="seco">Seco</option>
+                                <option value="molhado">Congelado </option>
+
+                            </ul>
                         </select>
                     </section>
                     <section class="container">
                         <label for="caminho">Forma de descarregamento:</label>
                         <select type="text" id="caminho" name="caminho" placeholder="Clique para selecionar" required>
-                        <ul class="options">
-                            <option selected disabled>Opções</option>
-                            <option value="descarregamentoTraseiro">Traseira </option>
-                            <option value="descarregamentoLateral">Lateral</option>
+                            <ul class="options">
+                                <option selected disabled>Opções</option>
+                                <option value="descarregamentoTraseiro">Traseira </option>
+                                <option value="descarregamentoLateral">Lateral</option>
 
-                        </ul>
+                            </ul>
                         </select>
                     </section>
 
@@ -64,15 +64,18 @@
 
                     <!-- Campos adicionais para transportadora (inicialmente ocultos) -->
                     <div id="camposTransportadora" style="display: none;">
+
+                        <section class="conteiner">
+                            <label for="cnpj">CNPJ:</label>
+                            <input type="text" onblur="checkCnpj(this.value)" data-mask="00.000.000/0000-00" id="cnpj">
+                        </section>
+
                         <section class="conteiner">
                             <label for="endereco">Endereço:</label>
                             <input type="text" id="endereco" name="endereco"><br>
                         </section>
 
-                        <section class="conteiner">
-                            <label for="cnpj">CNPJ:</label>
-                            <input type="text" id="cnpj" name="cnpj"><br>
-                        </section>
+
 
                         <section class="conteiner">
                             <label for="telefone">Telefone:</label>
@@ -84,6 +87,25 @@
                         <button onclick="etapaAnterior(1)" class="voltar">Voltar</button>
                         <button id="btnCadastrar" onclick="cadastrar()">Cadastrar</button>
                     </div>
+                    <div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                        <script
+                            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+                    </div>
+
+                    <script>
+                        function checkCnpj(cnpj) {
+                            $.ajax({
+                                url: 'https://brasilapi.com.br/api/cnpj/v1/cnpj/' + cnpj.replace(/{^0-9} /g, ''),
+                                type: "GET",
+                                dataType: 'jsonp',
+                                success: function (dado) {
+                                    console.log(dado);
+                                }
+                            });
+                        }
+
+                    </script>
                 </section>
             </div>
         </div>
