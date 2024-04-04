@@ -96,11 +96,18 @@
                     <script>
                         function checkCnpj(cnpj) {
                             $.ajax({
-                                url: 'https://brasilapi.com.br/api/cnpj/v1/cnpj/' + cnpj.replace(/{^0-9} /g, ''),
+                                url: 'https://brasilapi.com.br/api/cnpj/v1/cnpj/19526979000245' + cnpj.replace(/[^0-9]/g, ''),
                                 type: "GET",
                                 dataType: 'jsonp',
-                                success: function (dado) {
-                                    console.log(dado);
+                                success: function (data) {
+                                    if (data.endereco === undefined) {
+                                        alert(data.status + ' ' + data.message);
+                                    } else {
+                                        document.getElementById('endereco').value = data.endereco;
+                                    }
+                                },
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                    console.error(textStatus, errorThrown);
                                 }
                             });
                         }
