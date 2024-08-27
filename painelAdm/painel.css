@@ -1,0 +1,296 @@
+body {
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ec1818;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+main {
+    padding: 20px;
+
+}
+
+section.container {
+    margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    border: none;
+    /* Remover as bordas das células */
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+    /* Cor de fundo para linhas ímpares */
+}
+
+tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+.editar-reserva {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 10px;
+    background-color: #0084ff;
+    border-radius: 3px;
+    padding: 8px 16px;
+    font-size: 14px;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.editar-reserva {
+    /* ... estilos anteriores */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.editar-reserva {
+    /* ... estilos anteriores */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.editar-reserva:hover {
+    background-color: rgb(0, 116, 224)
+}
+
+.confirmar-reserva {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 10px;
+    background-color: #27ec00;
+    border-radius: 3px;
+    padding: 8px 16px;
+    font-size: 14px;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.confirmar-reserva {
+    /* ... estilos anteriores */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.confirmar-reserva {
+    /* ... estilos anteriores */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.confirmar-reserva:hover {
+    background-color: #22cc00;
+}
+
+.excluir-reserva {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 10px;
+    background-color: #ff0000;
+    border-radius: 3px;
+    padding: 8px 16px;
+    font-size: 14px;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.excluir-reserva {
+    /* ... estilos anteriores */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.excluir-reserva{
+    /* ... estilos anteriores */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.excluir-reserva:hover {
+    background-color: rgb(197, 0, 0)
+}
+
+/* Media query para telas menores */
+@media screen and (max-width: 768px) {
+    section.container {
+        width: 90%;
+    }
+}
+
+.REFE {
+    text-align: center;
+    transform: translateY(-50%);
+    font-size: 25px;
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    width: auto;
+    width: auto;
+}
+
+footer {
+    background-color: #ff0000da;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: 15px;
+    bottom: 0;
+    width: 100%;
+}
+
+.btn:link,
+.btn:visited {
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+    top: 50%;
+    right: 0; 
+    color: rgb(224, 0, 0);
+    border: 2px solid rgb(224, 0, 0);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.btn1:link,
+.btn1:visited {
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+    top: 50%;
+    color: #22cc00;
+    border: 2px solid #22cc00;
+    float: right;
+}
+
+.btn1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn1:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white1 {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn1::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white1::after {
+    background-color: #fff;
+}
+
+.btn1:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated1 {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

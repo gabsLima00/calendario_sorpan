@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="calendarioRegistro.js"></script>
+</head>
+
+<body>
+    <div id="conteiner-main">
+        <div id="formulario1">
+
+            <div class="etapa">
+                <!-- SEGUNDA ETAPA -->
+                <H1>DOCUMENTAÇÃO DA NOTA</H1>
+                <section class="secao">
+                    <section class="conteiner">
+                        <label for="nome">Nota Fiscal:</label>
+                        <input type="text" id="nome2" name="NF" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="Data">Chave de acesso:</label>
+                        <input type="number" id="data" name="chaveAcesso"><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="placaDoAutomovel">Peso Total: </label>
+                        <input type="number" id="pesoT" name="pesoT" onchange="salvarDados()"><br>
+
+                    </section>
+                    <div class="button-container">
+                        <button onclick="etapaAnterior(3)">Voltar</button>
+                        <button id="btnCadastrar" onclick="cadastrar()">Cadastrar</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

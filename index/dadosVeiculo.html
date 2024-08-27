@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="calendarioRegistro.js"></script>
+</head>
+
+<body>
+    <div id="conteiner-main">
+        <div id="formulario1">
+
+            <div class="etapa">
+                <!-- SEGUNDA ETAPA -->
+                <H1>INFORMAÇÕES DO TRANSPORTE</H1>
+                <section class="secao">
+
+                    <section class="conteiner">
+                        <label for="nome">N° da Placa:</label>
+                        <input type="text" id="nome2" name="placa" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="CPF">Cor:</label>
+                        <input type="text" id="serie" name="cor" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="Data">Modelo:</label>
+                        <input type="text" id="data" name="modelo"><br>
+                    </section>
+
+                    <section class="container">
+                        <label for="caminho">Tipo de carga:</label>
+                        <select type="text" id="caminho" name="caminho" placeholder="Clique para selecionar" required>
+                            <ul class="options">
+                                <option selected disabled>Opções</option>
+                                <option value="seco">Seco</option>
+                                <option value="molhado">Congelado </option>
+
+                            </ul>
+                        </select>
+                    </section>
+                    <section class="container">
+                        <label for="caminho">Forma de descarregamento:</label>
+                        <select type="text" id="caminho" name="caminho" placeholder="Clique para selecionar" required>
+                            <ul class="options">
+                                <option selected disabled>Opções</option>
+                                <option value="descarregamentoTraseiro">Traseira </option>
+                                <option value="descarregamentoLateral">Lateral</option>
+
+                            </ul>
+                        </select>
+                    </section>
+
+
+                    <section class="conteiner">
+                        <label for="transportadora">Você é de uma transportadora?</label>
+                        <input type="checkbox" id="transportadora" onclick="mostrarCamposTransportadora()">
+                    </section>
+
+                    <!-- Campos adicionais para transportadora (inicialmente ocultos) -->
+                    <div id="camposTransportadora" style="display: none;">
+
+                        <section class="conteiner">
+                            <label for="cnpj">CNPJ:</label>
+                            <input type="text" onblur="checkCnpj(this.value)" data-mask="00.000.000/0000-00" id="cnpj">
+                        </section>
+
+                        <section class="conteiner">
+                            <label for="endereco">Endereço:</label>
+                            <input type="text" id="endereco" name="endereco"><br>
+                        </section>
+
+
+
+                        <section class="conteiner">
+                            <label for="telefone">Telefone:</label>
+                            <input type="text" id="telefone" name="telefone"><br>
+                        </section>
+                    </div>
+
+                    <div class="button-container">
+                        <button onclick="etapaAnterior(1)" class="voltar">Voltar</button>
+                        <button id="btnCadastrar" onclick="cadastrar()">Cadastrar</button>
+                    </div>
+                    <div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                        <script
+                            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+                    </div>
+
+                    <script>
+                        function checkCnpj(cnpj) {
+                            $.ajax({
+                                url: 'https://brasilapi.com.br/api/cnpj/v1/cnpj/19526979000245' + cnpj.replace(/[^0-9]/g, ''),
+                                type: "GET",
+                                dataType: 'jsonp',
+                                success: function (data) {
+                                    if (data.endereco === undefined) {
+                                        alert(data.status + ' ' + data.message);
+                                    } else {
+                                        document.getElementById('endereco').value = data.endereco;
+                                    }
+                                },
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                    console.error(textStatus, errorThrown);
+                                }
+                            });
+                        }
+
+                    </script>
+                </section>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

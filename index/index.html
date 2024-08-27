@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="calendarioRegistro.js"></script>
+</head>
+
+<body>
+    <div id="conteiner-main">
+        <!-- PRIMERIA ETAPA -->
+        <div id="formulario">
+
+            <div class="etapa">
+                <div class="titulacao">
+                    <section class="domentos">
+                        <H1>DOCUMENTOS PESSOAIS</H1>
+                    </section>
+                </div>
+                <section class="secao">
+                    <section class="conteiner">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="CPF">CPF:</label>
+                        <input type="text" id="CPF" name="CPF" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="Data">Data de nascimento:</label>
+                        <input type="date" id="Data" name="Data"><br>
+                        
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="placaDoAutomovel">N° da CNH:</label>
+                        <input type="number" id="placaDoAutomovel" name="placaDoAutomovel" placeholder="Digite sua CNH"><br>
+                    </section>
+
+                    <section class="conteiner">
+
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone...">
+
+                    </section>
+                    <div class="button-container">
+                        <a href="/indexLoginOk/indexLogin.html"><button class="voltar">Voltar</button></a>
+                        <button onclick="proximaEtapa(1)" class="avancar">Avançar</button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 2 SEGUNDA ETAPA -->
+            <div class="etapa" style="display:none;">
+                <H1>EMPRESA</H1>
+                <section class="secao">
+
+                    <section class="conteiner">
+                        <label for="nome">Placa:</label>
+                        <input type="text" id="nome2" name="placa" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="CPF">Cor:</label>
+                        <input type="text" id="serie" name="cor" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="Data">Modelo:</label>
+                        <input type="text" id="data" name="modelo"><br>
+                    </section>
+
+                    <section class="container">
+                        <label for="caminho">Tipo de carga:</label>
+                        <select type="text" id="caminho" name="caminho" placeholder="Clique para selecionar" required>
+                            <ul class="options">
+                                <option selected disabled>Opções</option>
+                                <option value="seco">Seco</option>
+                                <option value="molhado">Congelado </option>
+
+                            </ul>
+                        </select>
+                    </section>
+                    <section class="container">
+                        <label for="caminho">Forma de descarregamento:</label>
+                        <select type="text" id="caminho" name="caminho" placeholder="Clique para selecionar" required>
+                            <ul class="options">
+                                <option selected disabled>Opções</option>
+                                <option value="descarregamentoTraseiro">Traseira </option>
+                                <option value="descarregamentoLateral">Lateral</option>
+
+                            </ul>
+                        </select>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="transportadora">Você é de uma transportadora?</label>
+                        <input type="checkbox" id="transportadora" onclick="mostrarCamposTransportadora()">
+                    </section>
+
+                    <!-- Campos adicionais para transportadora (inicialmente ocultos) -->
+                    <div id="camposTransportadora" style="display: none;">
+                        <section class="conteiner">
+                            <label for="endereco">Endereço:</label>
+                            <input type="text" id="endereco" name="endereco"><br>
+                        </section>
+
+                        <section class="conteiner">
+                            <label for="cnpj">CNPJ:</label>
+                            <input type="text" id="cnpj" name="cnpj"><br>
+                        </section>
+
+                        <section class="conteiner">
+                            <label for="telefone">Telefone:</label>
+                            <input type="text" id="telefone" name="telefone"><br>
+                        </section>
+                    </div>
+
+                    <div class="button-container">
+                        <button onclick="etapaAnterior(2)" class="voltar">Voltar</button>
+                        <button onclick="proximaEtapa(2)" class="avancar">Avançar</button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TERCEIRA ETAPA -->
+            <div class="etapa" style="display:none;">
+                <H1>DOCUMENTOS DO TRASPORTE</H1>
+                <section class="secao">
+                    <section class="conteiner">
+                        <label for="nome">Nota Fiscal:</label>
+                        <input type="text" id="nome2" name="NF" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="CPF">Série:</label>
+                        <input type="text" id="serie" name="serie" required><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="Data">Chave de acesso:</label>
+                        <input type="number" id="data" name="chaveAcesso"><br>
+                    </section>
+
+                    <section class="conteiner">
+                        <label for="placaDoAutomovel">Peso Total: </label>
+                        <input type="number" id="pesoT" name="pesoT" onchange="salvarDados()"><br>
+
+                    </section>
+                    <div class="button-container">
+                        <button onclick="etapaAnterior(3)">Voltar</button>
+                        <button id="btnCadastrar" onclick="cadastrar()">Cadastrar</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>

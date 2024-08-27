@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOGIN</title>
+  <link rel="stylesheet" href="indexLogin.css">
+  <script src="indexFunc.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <a class="links" id="paracadastro"></a>
+    <a class="links" id="paralogin"></a>
+
+    <div class="content">
+      <!--FORMULÁRIO DE LOGIN-->
+      <div id="login">
+        <form method="post" action="">
+          <h1>LOGIN</h1>
+          
+          <p>
+            <label for="nascimneto_login">DATA DE NASCIMENTO</label>
+            <input id="nascimneto_login" name="nascimneto_login" required="required" type="date"
+              placeholder="00/10/****" />
+              
+          </p>
+          <!-- <p>
+            <label for="nascimneto_login">DATA DE NASCIMENTO</label>
+            <input id="nascimneto_login" name="nascimneto_login" required="required" type="number"
+              placeholder="00/10/****" />
+              
+          </p> -->
+          <p>
+            <label for="cpf_login">CPF</label>
+            <input id="cpf_login" name="cpf_login" required="required" type="text" placeholder="062.***.***-**" />
+          </p>
+          <!-- <p>
+            <label for="cpf_login">CPF</label>
+            <input id="cpf_login" name="cpf_login" required="required" type="text" placeholder="062.***.***-**" />
+          </p> -->
+
+          <p>
+            <input type="submit" onclick="logar(); return false" value="Logar" />
+          </p>
+
+          <p class="link">
+            Ainda não tem cadastro?
+            <a href="http://127.0.0.1:5500/index/index.html">Cadastre-se</a>
+          </p>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+</body>
+
+</html>

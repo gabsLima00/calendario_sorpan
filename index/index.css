@@ -1,0 +1,181 @@
+/* Define um box-sizing global para todas as caixas, garantindo que o padding e a borda não alterem o tamanho total */
+* {
+    box-sizing: border-box;
+}
+/* Estilos para o corpo da página */
+body {
+    background-image: url(IMG/Backgraund.png);
+    background-size: cover;
+    background-position: center center; 
+    background-attachment: fixed;
+}
+/* Estilos para o contêiner principal */
+#formulario1{
+    max-width: 700px;
+    margin: 115px auto;
+}
+#formulario{
+    max-width: 700px;
+    margin: 150px auto;
+}
+
+/* Estilos para as seções do formulário */
+.secao {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: -200px;
+
+
+}
+/* Estilos para os contêineres dentro das seções */
+.conteiner {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 25px;
+    letter-spacing:px;
+    margin: 10px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.705);
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* Estilos para os rótulos dentro dos contêineres */
+.conteiner label {
+    min-width: 200px;
+    margin-right: 10px;
+
+
+}
+/* Estilos para os campos de entrada dentro dos contêineres */
+.conteiner input[type="text"],
+.conteiner input[type="date"],
+.conteiner input[type="number"],
+.conteiner input[type="tel"] {
+    flex: 1 1 auto; 
+    margin: 4px;
+    padding: 6px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; 
+}
+/* Estilos para os botões */
+
+
+@media screen and (max-width: 768px) {
+    .conteiner input[type="text"],
+    .conteiner input[type="date"],
+    .conteiner input[type="number"] {
+        flex-basis: 100%; 
+    }
+    .conteiner label {
+        min-width: auto; 
+        margin-right: 0;
+        margin-bottom: 5px; 
+
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+ 
+}
+
+.button-container button {
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 70px;
+    cursor: pointer;
+    position: relative;
+    
+}
+
+.button-container button:hover {
+    background-color: #f7ef00;
+    color: red;
+}
+/* Estilos para os links */
+a{
+    text-decoration: none;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 70px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 55px;
+}
+
+h1{
+    font-size: 32px;
+    color: rgb(218, 0, 0);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing:px;
+
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container label {
+    min-width: 200px;
+    margin-left: 8px;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.705);
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container select {
+    
+    flex: 1 1 auto; 
+    margin: 4px;
+    padding: 6px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.705);
+}
+
+/* Estilos para a lista de opções */
+.container .options {
+    list-style: none;
+}
+
+.container .options li {
+    padding: 5px 10px;
+}
+
+.container .options li:hover {
+    background-color: #f7ef00;
+    color: red;
+}
+
+@media screen and (max-width: 768px) {
+
+    .container label {
+        margin-bottom: 5px;
+        min-width: auto;
+    }
+
+    .container select {
+        margin-top: 5px;
+    }
+}
+.container input[type="date"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+}
