@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendador</title>
+    <link rel="stylesheet" href="/css/painelAdm.css">
+    <script src="../js/paineladm.js"></script>
+    <link rel="shortcut icon" href="../../img/faviconsorpan-1676673111.webp" type="image/x-icon">
+    
+</head>
+
+<body>
+    
+    <header>
+        <nav>
+            <div>
+                <a href="/logout" class="btn btn-white btn-animate">SAIR</a>
+            </div>
+            <div>
+                <a href="/painelConfirmados" class="btn1 btn-white1 btn-animate1">AGENDAMENTOS CONFIRMADOS</a>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="text-box">
+        <h2>AGENDAMENTOS PENDENTES</h2>
+    </div>
+    <div class="notification">
+        <span id="notification-badge" class="badge" style="display: none;">0</span>
+        <button>Pré-agendamentos</button>
+    </div>
+    <forms>
+        <section class="container">
+            <section class="container">
+                <div class="filtro">
+                    <input type="date" id="data-input" />
+                    <button id="buscar-disponibilidade">Buscar Disponibilidade</button>
+                </div>
+                <div id="disponibilidade-container"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>MOTORISTA </th>
+                        <th>Nº PLACA</th>
+                        <th>EMP</th>
+                        <th>TIPO DE CARGA</th>
+                        <th>DESCARREGAMENTO</th>
+                        <th>DIA</th>
+                        <th>HORÁRIO</th>
+                        <th>DOCA</th>
+                        <th>DETALHES</th>
+                        <th>AÇÕES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% usuarios.forEach(usuario => { %>
+                        <tr>
+                            <td class="horario"><%= usuario.id %></td>
+                            <td><%= usuario.motorista %></td>
+                            <td><%= usuario.placaVeiculo || 'N/A' %></td>
+                            <td class="empresa"><%= usuario.empresa || 'Sem descrição' %></td>
+                            <!-- HTML -->
+                            <td><%= usuario.tipoCarga || 'N/A' %></td>
+                            <td><%= usuario.descarregamento || 'Sem descrição' %></td>
+                            <% const dataFormatada = new Date(usuario.data).toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric', year: 'numeric' });
+                            %>
+                            <td class="data"><%= dataFormatada %></td>
+                            <!-- <td><%= usuario.data|| 'N/A' %></td> -->
+                            <td class="horario"><%= usuario.horario || 'N/A' %></td>
+                            <td class="doca"><%= usuario.doca|| 'N/A' %></td>
+                            <td>
+                                <a href="#" onclick="mostrarDetalhes('<%= usuario.id %>')">
+                                    <!-- Inclua o SVG aqui -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="80" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            
+                            <td>
+                                <a href="#" class="editar-reserva" data-id="<%= usuario.id %>">Editar</a>
+                                
+                                <a href="#" class="confirmar-reserva" data-id="<%= usuario.id %>">Confirmar </a>
+                                <a href="#" class="recusar-reserva" data-id="<%= usuario.id %>">Recusar</a>
+                            </td>
+
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </section>
+    </forms>
+
+    <!-- Modal -->
+    <div id="modal-container" class="modal-container">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <div id="modal-disponibilidade-container"></div>
+        </div>
+      </div>
+
+      <div id="modal-container-2" class="modal-container">
+        <div class="modal-content">
+            <span class="close-modal-2">&times;</span>
+            <div id="modal-content-2">
+                <!-- Conteúdo do modal -->
+                <h2>Novo Modal</h2>
+
+            </div>
+        </div>
+    </div>
+      
+
+      
+</body>
+
+
+<script>
+function mostrarDetalhes(idAgendamento) {
+  // Usar window.location.href é menos comum no JavaScript moderno
+  location.href = `/detalhes_agendamento/${idAgendamento}`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const socket = io();
+    const notificationBadge = document.getElementById('notification-badge');
+    let count = 0;
+
+    socket.on('novo-preagendamento', (preagendamento) => {
+        count++;
+        notificationBadge.innerText = count;
+        notificationBadge.style.display = 'inline';
+    });
+});
+
+
+</script>
+</html>

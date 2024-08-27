@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos Confirmados - Comprador</title>
+    <!-- Adicione os estilos e scripts necessários -->
+    <link rel="stylesheet" href="/css/painel.css">
+</head>
+<body>
+    <header>
+        <!-- Adicione qualquer cabeçalho necessário, como um link para a página inicial, por exemplo -->
+    </header>
+    <div class="container">
+        <h1>Agendamentos Confirmados - Comprador</h1>
+        <!-- Adicione qualquer filtro necessário para os agendamentos, se aplicável -->
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>MOTORISTA </th>
+                    <th>Nº PLACA</th>
+                    <th>EMP</th>
+                    <th>NOTA FISCAL</th>
+                    <th>DESCARREGAMENTO</th>
+                    <th>DIA</th>
+                    <th>HORÁRIO</th>
+                    <th>DOCA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% usuarios.forEach(usuario => { %>
+                    <tr>
+                        <td><%= usuario.id %></td>
+                            <td><%= usuario.nome %></td>
+                            <td><%= usuario.placaVeiculo || 'N/A' %></td>
+                            <td><!-- Coluna Nota Fiscal, ajuste conforme necessário --></td>
+                            <td><%= usuario.nome_fornecedor || 'Sem descrição' %></td>
+                            <td><%= usuario.descarregamento || 'Sem descrição' %></td>
+                            <% const dataFormatada = new Date(usuario.data).toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric', year: 'numeric' });
+%>  
+<td><%= dataFormatada %></td>
+                            <!-- <td><%= usuario.data|| 'N/A' %></td> -->
+                            <td><%= usuario.horario || 'N/A' %></td>
+                            <td><%= usuario.doca|| 'N/A' %></td>
+                            
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <!-- Adicione quaisquer scripts necessários -->
+</body>
+</html>

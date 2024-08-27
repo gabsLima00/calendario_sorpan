@@ -1,0 +1,127 @@
+npm init -y = para baixa arquivo .json
+
+npm install express - save  para adicionar o express 
+
+nodeon 
+
+
+// rota de base url
+app.get('/',(req, res) => {
+    res.send('AUla na aula ')
+})
+
+
+// mocc array do no formato json so para ver 
+const produtosApi = [
+    {id: 1, produto: 'arroz', quantidade: 3},
+    {id: 2, produto: 'feijao', quantidade: 2},
+    {id: 3, produto: 'maca', quantidade: 1},
+    {id: 4, produto: 'alface', quantidade: 0},
+]
+
+
+
+
+
+
+
+import express from 'express'
+import conexao from '../infra/conexao.js'
+const app = express()
+// indicar o body json, para ler
+app.use(express.json())
+
+//cria uma funçao para fazer uma busca pelo id na url 
+function buscaFuncaoPorId(id) {
+    return produtosApi.filter(produto => produto.id == id);
+}
+//pegar o elemento index no array 
+function buscarIdSelecao(id) {
+    return produtosApi.findIndex(produto => produto.id == id)
+}
+//como fosse uma segunda pagina 
+app.get('/produtos', (req, res) => {
+    // res.send(produtosApi)
+    const sql = "SELECT * FROM produtos ";
+    conexao.query(sql, (error, result) => {
+        if (error) {
+            res.status(404).json({ 'erro': error });
+        } else {
+            res.status(200).json(result);
+        }
+    })
+
+})
+
+//aqui faz uma busca por id usando a função criado e puxando para pagina usando o GET 
+app.get('/produtos/:id', (req, res) => {
+    // let numeroId = req.params.id 
+    // res.json(buscaFuncaoPorId(req.params.id))
+    const id = req.params.id
+    const sql = "SELECT * FROM produtos WHERE ID=?";
+    conexao.query(sql, id, (error, result) => {
+
+
+        if (error) {
+            res.status(404).json({ 'erro': error });
+        } else {
+            res.status(200).json(result);
+        }
+    })
+})
+
+//tipo é outra pagina mas poode fazer na mesma, para adicionar algo novo usando id 
+app.post('/produtosVenda', (req, res) => {
+    // produtosApi.push(req.body)
+    // res.status(201).send('Produtos cadastrado com sucesso');
+    const produto = req.body
+    const sql = "INSERT INTO produtos SET?;";
+    conexao.query(sql, produto, (error, result) => {
+
+        if (error) {
+            res.status(400).json({ 'erro': error });
+        } else {
+            res.status(201).json(result);
+        }
+    })
+})
+
+// esse é o delete por id 
+app.delete('/produtos/:id', (req, res) => {
+    //     let index =buscarIdSelecao(req.params.id)
+    //     produtosApi.splice(index,1)
+    //     res.send(`produto com id ${req.params.id} excluida`)
+    // })
+    const id = req.params.id
+    const sql = "DELETE FROM produtos WHERE ID=?";
+    conexao.query(sql, id, (error, result) => {
+        if (error) {
+            res.status(404).json({ 'erro': error });
+        } else {
+            res.status(200).json(result);
+        }
+
+    })
+})
+
+//Atualiza item por id
+app.put('/produtos/:id', (req, res) => {
+    // let index = buscarIdSelecao(req.params.id)
+    // produtosApi[index].produto = req.body.produto;
+    // produtosApi[index].quantidade = req.body.quantidade;
+    // res.json(produtosApi)
+    const id = req.params.id
+    const produto = req.body
+    const sql = "UPDATE produtos SET? WHERE id=?;";
+    conexao.query(sql, [produto, id], (error, result) => {
+
+        if (error) {
+            res.status(400).json({ 'erro': error });
+        } else {
+            res.status(201).json(result);
+        }
+    })
+})
+
+
+export default app;

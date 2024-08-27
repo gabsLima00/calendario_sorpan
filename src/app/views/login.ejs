@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/painelAdm.css">
+    <link rel="shortcut icon" href="../../img/faviconsorpan-1676673111.webp" type="image/x-icon">
+    <title>Login</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.login-page {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #023047;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #ec1a3b;;
+    background-image: linear-gradient(216deg, rgba(77, 77, 77,0.05) 0%, rgba(77, 77, 77,0.05) 25%,rgba(42, 42, 42,0.05) 25%, rgba(42, 42, 42,0.05) 38%,rgba(223, 223, 223,0.05) 38%, rgba(223, 223, 223,0.05) 75%,rgba(36, 36, 36,0.05) 75%, rgba(36, 36, 36,0.05) 100%),linear-gradient(44deg, rgba(128, 128, 128,0.05) 0%, rgba(128, 128, 128,0.05) 34%,rgba(212, 212, 212,0.05) 34%, rgba(212, 212, 212,0.05) 57%,rgba(25, 25, 25,0.05) 57%, rgba(25, 25, 25,0.05) 89%,rgba(135, 135, 135,0.05) 89%, rgba(135, 135, 135,0.05) 100%),linear-gradient(241deg, rgba(55, 55, 55,0.05) 0%, rgba(55, 55, 55,0.05) 14%,rgba(209, 209, 209,0.05) 14%, rgba(209, 209, 209,0.05) 60%,rgba(245, 245, 245,0.05) 60%, rgba(245, 245, 245,0.05) 69%,rgba(164, 164, 164,0.05) 69%, rgba(164, 164, 164,0.05) 100%),linear-gradient(249deg, rgb(236,26,59) 0%, rgb(236,26,59) 32%,rgb(236,26,59) 32%, rgb(236,26,59) 35%,rgb(236,26,59) 35%, rgb(236,26,59) 51%,rgb(236,26,59) 51%, rgb(236,26,59) 100%),linear-gradient(92deg, hsl(214,0%,11%),hsl(214,0%,11%));
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 60px; /* aumentando o padding para mais espaço interno */
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    gap: 10px; /* aumentando o espaço entre os elementos */
+    text-align: left;
+    
+}
+
+.login-container img {
+    width: 480px; /* aumentando o tamanho da imagem */
+    margin-bottom: 30px; /* aumentando a margem inferior da imagem */
+}
+
+.login-container h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.5em; /* aumentando o tamanho do título */
+}
+
+.login-container p {
+    font-size: 16px; /* aumentando o tamanho do texto */
+    margin-bottom: 30px; /* aumentando a margem inferior do texto */
+}
+
+.login-container input {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+    display: block; /* Altera o display para block para posicionar o input abaixo da label */
+}
+
+.login-container input:focus {
+    border: 1px solid #f72585;
+}
+
+.login-container label {
+    font-size: 16px;
+    font-weight: 600;
+    display: block; /* Altera o display para block para posicionar a label acima do input */
+    margin-bottom: 10px; /* Adiciona uma margem inferior para separar a label do input */
+}
+
+.login-container a {
+    font-size: 15px; /* aumentando o tamanho da fonte dos links */
+    color: #555;
+    transition: all linear 160ms;
+}
+
+.login-container a:hover {
+    color: #f72585;
+}
+
+
+.login-container .btn3 {
+    background-color: #ec1a3b;
+    padding: 15px 30px; /* aumentando o padding do botão */
+    width: 200px; /* aumentando a largura do botão */
+    height: 50px; /* aumentando a altura do botão */
+    text-decoration: none;
+    border: 1px solid #ebebeb;
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+    color: #fff;
+    font-size: 16px; /* aumentando o tamanho da fonte do botão */
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px; /* centralizando verticalmente o texto */
+    cursor: pointer;
+    display: inline-block;
+}
+
+.login-container .btn3:hover {
+    transform: scale(1.05);
+    background-color: #da1734;
+}
+    </style>
+<img loading="lazy" src="https://sorpanalimentos.agilecdn.com.br/imgs/logosorpan-1676673099.png">
+<body class="login-page">
+    <div class="login-container">
+        <form action="/login" method="post">
+    
+            <% if (typeof error !== 'undefined') { %>
+                <p style="color: red;"><%= error %></p>
+            <% } %>
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <button type="submit" class="btn3">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

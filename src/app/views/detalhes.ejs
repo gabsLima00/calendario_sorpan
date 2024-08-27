@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/painelAdm.css">
+    <title>Detalhes do Agendamento</title>
+ 
+</head>
+<body class="agendamento-detalhes"> 
+    <header class="header1">
+        <% if (isConfirmedPanel) { %>
+            <a href="/painelConfirmados" class="btn btn-white btn-animate">VOLTAR</a>
+        <% } else { %>
+            <a href="/painel" class="btn btn-white btn-animate">VOLTAR</a>
+        <% } %>
+        <div>
+            <div class="ss">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="80"
+                height="40" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </div>
+    </header>
+    <% if (detalhesAgendamento && detalhesAgendamento.length > 0) { %>
+        <% for (const detalhes of detalhesAgendamento) { %>
+            <div class="detalhes-container">
+                <h1>Detalhes do Agendamento #<%= detalhes.id %></h1>
+                <h1>Comprador: <%= detalhes.nomeComprador %></h1>
+                
+                <div class="section">
+                    <h5>Informações da Empresa e Nota Fiscal</h5>
+                    <p class="direct-from-db">Nome da Empresa: <%= detalhes.nomeEmpresa %></p>
+                    <p class="direct-from-db">CNPJ: <%= detalhes.cnpj %></p>
+                    <p class="direct-from-db">Número da Nota Fiscal: <%= detalhes.numeroNotaFiscal %></p>
+                </div>
+            
+                <div class="section">
+                    <h5>Detalhes do Motorista</h5>
+                    <p class="direct-from-db">Nome do Motorista: <%= detalhes.nomeMotorista %></p>
+                    <p class="direct-from-db">CNH: <%= detalhes.cnh %></p>
+                    <p class="direct-from-db">Telefone: <%= detalhes.telefone %></p>
+                    <p class="direct-from-db">Placa do Veículo: <%= detalhes.placaVeiculo %></p>
+                </div>
+            
+                <div class="section">
+                    <h5>Tipo de Carga e Forma de Descarregamento</h5>
+                    <p class="direct-from-db">Tipo de Carga: <%= detalhes.tipoCarga %></p>
+                    <p class="direct-from-db">Forma de Descarregamento: <%= detalhes.tipoDescarregamento %></p>
+                </div>
+            </div>
+        <% } %>
+    <% } else { %>
+        <p class="no-details">Nenhum detalhe de agendamento encontrado.</p>
+    <% } %>
+</body>
+</html>

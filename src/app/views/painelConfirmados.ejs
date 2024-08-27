@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos Confirmados</title>
+    <link rel="shortcut icon" href="../../img/faviconsorpan-1676673111.webp" type="image/x-icon">
+    <link rel="stylesheet" href="/css/painelAdm.css">
+
+ 
+</head>
+
+<body>
+    <header class="header1">
+        <a href="/painel" class="btn btn-white btn-animate">VOLTAR</a>
+        <div class="ss">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="80"
+            height="40" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Doca 1</h2>
+
+        <!-- Adicione o campo de entrada e o botão de busca -->
+        <div class="filtro">
+            <label for="dataFiltro1">Filtrar por Data:</label>
+            <input type="date" id="dataFiltro1">
+            <button onclick="location.reload()">Recarregar</button>
+        </div>
+        
+        <div id="doca1" class="doca-container">
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>MOTORISTA </th>
+                        <th>Nº PLACA</th>
+                        <th>EMP</th>
+                        <th>TIPO DE CARGA</th>
+                        <th>DESCARREGAMENTO</th>
+                        <th>DIA</th>
+                        <th>HORÁRIO</th>
+                        <th>DOCA</th>
+                        <th>DETALHES</th>
+                        <th>AÇÕES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% usuariosDoca1.forEach(usuario=> { %>
+                        <tr>
+                            <td class="horario">
+                                <%= usuario.id %>
+                            </td>
+                            <td>
+                                <%= usuario.motorista %>
+                            </td>
+                            <td>
+                                <%= usuario.placaVeiculo || 'N/A' %>
+                            </td>
+                            <td>
+                                <%= usuario.empresa || 'Sem descrição' %>
+                            </td>
+
+                            </td>
+                            <td>
+                                <%= usuario.tipoCarga || 'N/A' %>
+                            </td>
+                            <td>
+                                <%= usuario.descarregamento || 'Sem descrição' %>
+                            </td>
+                            <% const dataFormatada=new Date(usuario.data).toLocaleDateString('pt-BR', { day: 'numeric' ,
+                                month: 'numeric' , year: 'numeric'  }); %>
+                                <td>
+                                    <%= dataFormatada %>
+                                </td>
+                                <!-- <td><%= usuario.data|| 'N/A' %></td> -->
+                                <td class="horario">
+                                    <%= usuario.horario || 'N/A' %>
+                                </td>
+                                <td>
+                                    <%= usuario.doca|| 'N/A' %>
+                                </td>
+
+                                <td>
+                                    <a href="#" onclick="mostrarDetalhes('<%= usuario.id %>')">
+                                        <!-- Inclua o SVG aqui -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="80"
+                                            height="40" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                                        </svg>
+                                    </a>
+                                </td>
+                                <!-- Adicione outras colunas conforme necessário -->
+                                <td>
+                                    <a href="#" class="editar-reserva" data-id="<%= usuario.id %>">Editar</a>
+                                    <a href="#" class="remover-reserva" data-id="<%= usuario.id %>">Remover</a>
+                                </td>
+
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <h2>Doca 2</h2>
+    <div id="doca2" class="doca-container">
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>MOTORISTA </th>
+                    <th>Nº PLACA</th>
+                    <th>EMP</th>
+                    <th>TIPO DE CARGA</th>
+                    <th>DESCARREGAMENTO</th>
+                    <th>DIA</th>
+                    <th>HORÁRIO</th>
+                    <th>DOCA</th>
+                    <th>DETALHES</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% usuariosDoca2.forEach(usuario=>{ %>
+                    <tr>
+                        <td class="horario">
+                            <%= usuario.id %>
+                        </td>
+                        <td>
+                            <%= usuario.motorista %>
+                        </td>
+                        <td>
+                            <%= usuario.placaVeiculo || 'N/A' %>
+                        </td>
+                        <td>
+                            <%= usuario.empresa || 'Sem descrição' %>
+                        </td>
+                        </td>
+                        <td>
+                            <%= usuario.tipoCarga || 'N/A' %>
+                        </td>
+                        <td>
+                            <%= usuario.descarregamento || 'Sem descrição' %>
+                        </td>
+                        <% const dataFormatada=new Date(usuario.data).toLocaleDateString('pt-BR', { day: 'numeric' ,
+                            month: 'numeric' , year: 'numeric'  }); %>
+                            <td>
+                                <%= dataFormatada %>
+                            </td>
+                            <!-- <td><%= usuario.data|| 'N/A' %></td> -->
+                            <td class="horario">
+                                <%= usuario.horario || 'N/A' %>
+                            </td>
+                            <td>
+                                <%= usuario.doca|| 'N/A' %>
+                            </td>
+
+                            <td>
+                                <a href="#" onclick="mostrarDetalhes('<%= usuario.id %>')">
+                                    <!-- Inclua o SVG aqui -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="80" height="40"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-menu">
+                                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <!-- Adicione outras colunas conforme necessário -->
+                            <td>
+                                <a href="#" class="editar-reserva" data-id="<%= usuario.id %>">Editar</a>
+                                <a href="#" class="remover-reserva" data-id="<%= usuario.id %>">Remover</a>
+                            </td>
+
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    </div>
+    <h2>Doca 3</h2>
+    <div id="doca3" class="doca-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>MOTORISTA </th>
+                    <th>Nº PLACA</th>
+                    <th>EMP</th>
+                    <th>TIPO DE CARGA</th>
+                    <th>DESCARREGAMENTO</th>
+                    <th>DIA</th>
+                    <th>HORÁRIO</th>
+                    <th>DOCA</th>
+                    <th>DETALHES</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% usuariosDoca3.forEach(usuario=> { %>
+                    <tr>
+                        <td >
+                            <%= usuario.id %>
+                        </td>
+                        <td>
+                            <%= usuario.motorista %>
+                        </td>
+                        <td>
+                            <%= usuario.placaVeiculo || 'N/A' %>
+                        </td>
+                        <td>
+                            <%= usuario.empresa || 'Sem descrição' %>
+                        </td>
+                        </td>
+                        <td>
+                            <%= usuario.tipoCarga || 'N/A' %>
+                        </td>
+                        <td>
+                            <%= usuario.descarregamento || 'Sem descrição' %>
+                        </td>
+                        <% const dataFormatada=new Date(usuario.data).toLocaleDateString('pt-BR', { day: 'numeric' ,
+                            month: 'numeric' , year: 'numeric'  }); %>
+                            <td>
+                                <%= dataFormatada %>
+                            </td>
+                            <!-- <td><%= usuario.data|| 'N/A' %></td> -->
+                            <td class="horario">
+                                <%= usuario.horario || 'N/A' %>
+                            </td>
+                            <td>
+                                <%= usuario.doca|| 'N/A' %>
+                            </td>
+                            <td>
+                                <a href="#" onclick="mostrarDetalhes('<%= usuario.id %>')">
+                                    <!-- Inclua o SVG aqui -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="80" height="40"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-menu">
+                                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                                    </svg>
+                                </a>
+                            </td>
+
+                            <!-- Adicione outras colunas conforme necessário -->
+                            <td>
+                                <!-- // <a href="#" class="editar-reserva" data-id="${agendamento.id}">Editar</a> -->
+                                <a href="#" class="editar-reserva" data-id="<%= usuario.id %>">Editar</a>
+                                <a href="#" class="remover-reserva" data-id="<%= usuario.id %>">Remover</a>
+                            </td>
+
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <div id="modal-container" class="modal-container">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <div id="modal-disponibilidade-container"></div>
+        </div>
+      </div>
+      
+<div class="relatorio">
+    <button id="gerarRelatorioBtn">Gerar Relatório</button>
+</div>
+    <script>
+
+
+
+async function filtrarAgendamentosPorData() {
+    const dataSelecionada = document.getElementById('dataFiltro1').value;
+
+    try {
+        const response = await fetch(`/preagendamento/confirmados/data/${dataSelecionada}`);
+        if (!response.ok) {
+            throw new Error('Erro ao buscar agendamentos confirmados');
+        }
+        const agendamentos = await response.json();
+        atualizarTabela(agendamentos);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+document.getElementById('dataFiltro1').addEventListener('change', filtrarAgendamentosPorData);
+
+function atualizarTabela(agendamentos) {
+    const agendamentosPorDoca = {
+        1: [],
+        2: [],
+        3: []
+    };
+
+    agendamentos.forEach(agendamento => {
+        agendamentosPorDoca[agendamento.doca].push(agendamento);
+    });
+
+    for (let doca = 1; doca <= 3; doca++) {
+        atualizarTabelaPorDoca(doca, agendamentosPorDoca[doca]);
+    }
+
+    // Adicionar os event listeners de editar e remover após a atualização da tabela
+    adicionarEventListenersEditar();
+    adicionarEventListenersRecusar();
+}
+
+function atualizarTabelaPorDoca(doca, agendamentos) {
+    const tbody = document.getElementById(`doca${doca}`).querySelector('tbody');
+    tbody.innerHTML = ''; // Limpa o conteúdo atual da tabela
+
+    agendamentos.forEach(agendamento => {
+        const row = `
+                <tr>
+                    <td>${agendamento.id}</td>
+                    <td>${agendamento.motorista}</td>
+                    <td>${agendamento.placaVeiculo || 'N/A'}</td>
+                    <td>${agendamento.empresa || 'N/A'}</td>
+                    <td>${agendamento.tipoCarga || 'Sem descrição'}</td>
+                    <td>${agendamento.descarregamento || 'Sem descrição'}</td>
+                    <td>${new Date(agendamento.data).toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric', year: 'numeric' })}</td>
+                    <td>${agendamento.horario || 'N/A'}</td>
+                    <td>${agendamento.doca || 'N/A'}</td>
+                    <td>
+                        <a href="#" onclick="mostrarDetalhes('${agendamento.id}')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="80" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" class="editar-reserva" data-id="${agendamento.id}">Editar</a>
+                        <a href="#" class="remover-reserva" data-id="${agendamento.id}">Remover</a>
+                    </td>
+                </tr>
+            `;
+
+            tbody.innerHTML += row; // Adiciona a nova linha à tabela
+        });
+    }
+
+    function adicionarEventListenersRecusar() {
+        const recusarLinks = document.querySelectorAll('.remover-reserva');
+        recusarLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const idAgendamento = event.target.dataset.id;
+                recusarAgendamento(idAgendamento);
+            });
+        });
+    }
+
+
+
+    function adicionarEventListenersEditar() {
+    const editarLinks = document.querySelectorAll('.editar-reserva');
+    editarLinks.forEach(link => {
+        link.addEventListener('click', async (event) => {
+            event.preventDefault();
+
+            const preagendamentoId = event.target.dataset.id;
+
+            try {
+                const response = await fetch(`/preagendamento/${preagendamentoId}`);
+                const preagendamento = await response.json();
+
+                if (!preagendamento) {
+                    console.error('Preagendamento não encontrado.');
+                    return;
+                }
+
+                const editForm = document.createElement('form');
+                editForm.classList.add('edit-form');
+
+                const campos = ['data', 'horario', 'doca'];
+
+                campos.forEach(campo => {
+                    const label = document.createElement('label');
+                    label.textContent = campo[0].toUpperCase() + campo.slice(1) + ':';
+
+                    let input;
+                    if (campo === 'horario' || campo === 'doca') {
+                        input = document.createElement('input');
+                        input.classList.add('edit-input');
+                        input.setAttribute('name', campo);
+                        input.setAttribute('readonly', true);
+
+                        if (campo === 'horario') {
+                            input.setAttribute('id', 'editar-horario');
+                        } else {
+                            input.setAttribute('id', 'editar-doca');
+                        }
+                    } else {
+                        input = document.createElement('input');
+                        input.classList.add('edit-input');
+                        input.setAttribute('name', campo);
+                        input.type = 'date';
+                        input.value = preagendamento[campo] ? new Date(preagendamento[campo]).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+                    }
+
+                    const container = document.createElement('div');
+                    container.appendChild(label);
+                    container.appendChild(input);
+                    container.appendChild(document.createElement('br'));
+
+                    editForm.appendChild(container);
+                });
+
+                const escolherButton = document.createElement('button');
+                escolherButton.type = 'button';
+                escolherButton.textContent = 'Escolher Doca e Horário';
+                escolherButton.addEventListener('click', () => {
+                    abrirModalEscolhaDocaHorario(preagendamentoId);
+                });
+
+                const salvarButton = document.createElement('button');
+                salvarButton.type = 'button';
+                salvarButton.textContent = 'Salvar';
+                salvarButton.addEventListener('click', async () => {
+                    if (editForm.reportValidity()) {
+                        const formData = new FormData(editForm);
+                        const payload = {};
+
+                        formData.forEach((value, name) => {
+                            payload[name] = value;
+                        });
+
+                        payload['horario'] = payload['horario'].slice(0, 5);
+
+                        try {
+                            const updateResponse = await fetch(`/preagendamento/${preagendamentoId}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(payload),
+                            });
+
+                            if (updateResponse.ok) {
+                                alert('Dados atualizados com sucesso!');
+                                location.reload();
+                            } else {
+                                alert('Erro ao atualizar os dados.');
+                                console.log(updateResponse);
+                            }
+                        } catch (error) {
+                            console.error('Erro ao atualizar preagendamento:', error);
+                            alert('Erro ao atualizar os dados.');
+                        }
+                    }
+                });
+
+                const cancelarButton = document.createElement('button');
+                cancelarButton.type = 'button';
+                cancelarButton.textContent = 'Cancelar';
+                cancelarButton.addEventListener('click', () => {
+                    link.parentElement.removeChild(editForm);
+                });
+
+                editForm.appendChild(escolherButton);
+                editForm.appendChild(salvarButton);
+                editForm.appendChild(cancelarButton);
+
+                link.parentElement.appendChild(editForm);
+            } catch (error) {
+                console.error('Erro ao buscar dados do agendamento:', error);
+                alert('Erro ao buscar dados do agendamento.');
+            }
+        });
+    });
+}
+
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('recusar-reserva')) {
+        const agendamentoId = event.target.getAttribute('data-id');
+        confirmarAcao(agendamentoId, 2, 'recusar', `Tem certeza que deseja recusar o pré-agendamento com ID ${agendamentoId}?`);
+    } else if (event.target.classList.contains('remover-reserva')) {
+        const agendamentoId = event.target.getAttribute('data-id');
+        confirmarAcao(agendamentoId, 0, 'remover', `Tem certeza que deseja remover o pré-agendamento com ID ${agendamentoId}? Ele voltara para pagina de nao confirmados.`);
+    }
+});
+
+function confirmarAcao(id, status, acao, mensagem) {
+    if (confirm(mensagem)) {
+        alterarStatusAgendamento(id, status, acao);
+    }
+}
+
+function alterarStatusAgendamento(id, status, acao) {
+    fetch(`/recusar-agendamento/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ status, acao }) // Enviar o status e a ação apropriados
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(`Agendamento ${acao === 'recusar' ? 'recusado' : 'removido'}:`, data);
+        alert(`Agendamento ${acao === 'recusar' ? 'recusado' : 'removido'}!`);
+        location.reload();
+    })
+    .catch(error => console.error(`Erro ao ${acao === 'recusar' ? 'recusar' : 'remover'} agendamento:`, error));
+}
+
+async function abrirModalEscolhaDocaHorario(data) {
+    try {
+        const response = await fetch(`/preagendamento/disponibilidade/${data}`);
+        if (!response.ok) {
+            throw new Error('Erro ao buscar disponibilidade');
+        }
+        const disponibilidade = await response.json();
+        exibirDisponibilidadeModal(disponibilidade, true);
+    } catch (error) {
+        console.error('Erro ao buscar disponibilidade:', error);
+    }
+}
+
+function exibirDisponibilidadeModal(disponibilidade, isEditing) {
+    const modalContainer = document.getElementById('modal-container');
+    const modalDisponibilidadeContainer = document.getElementById('modal-disponibilidade-container');
+    modalDisponibilidadeContainer.innerHTML = '';
+
+    ['doca1', 'doca2', 'doca3'].forEach(doca => {
+        const docaHeader = document.createElement('h3');
+        docaHeader.textContent = `Doca ${doca.slice(-1)}`;
+        modalDisponibilidadeContainer.appendChild(docaHeader);
+
+        disponibilidade[doca].forEach(horarioInfo => {
+            const horarioElement = document.createElement('p');
+            horarioElement.textContent = `${horarioInfo.horario} - ${horarioInfo.disponivel ? 'Disponível' : 'Ocupado'}`;
+            horarioElement.style.color = horarioInfo.disponivel ? 'green' : 'red';
+            horarioElement.style.cursor = horarioInfo.disponivel ? 'pointer' : 'default';
+
+            if (horarioInfo.disponivel) {
+                horarioElement.addEventListener('click', () => {
+                    if (isEditing) {
+                        document.getElementById('editar-doca').value = doca.slice(-1);
+                        document.getElementById('editar-horario').value = horarioInfo.horario;
+                    }
+                    modalContainer.style.display = 'none';
+                });
+            }
+
+            modalDisponibilidadeContainer.appendChild(horarioElement);
+        });
+    });
+
+    modalContainer.style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const closeModalButton = document.querySelector('.close-modal');
+    closeModalButton.addEventListener('click', () => {
+        const modalContainer = document.getElementById('modal-container');
+        modalContainer.style.display = 'none';
+    });
+});
+
+// Adiciona a funcionalidade para fechar o modal clicando fora da área do modal
+
+
+function makeModalDraggable(modal) {
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    // Seleciona o cabeçalho do modal para torná-lo arrastável
+    const modalHeader = modal.querySelector('.modal-header');
+
+    modalHeader.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.clientX - modal.getBoundingClientRect().left;
+        offsetY = e.clientY - modal.getBoundingClientRect().top;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            modal.style.left = `${e.clientX - offsetX}px`;
+            modal.style.top = `${e.clientY - offsetY}px`;
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+}
+
+const modalContainer = document.getElementById('modal-container');
+makeModalDraggable(modalContainer);
+
+
+
+    // Função para redirecionar para detalhes do agendamento
+    function mostrarDetalhes(idAgendamento) {
+        const dataFiltro = document.getElementById('dataFiltro1').value; // Obtém o valor do filtro de data
+        location.href = `/detalhes_agendamento/${idAgendamento}?dataFiltro=${dataFiltro}`; // Inclui o filtro na URL
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('gerarRelatorioBtn').addEventListener('click', gerarRelatorio);
+});
+
+function gerarRelatorio() {
+    const dataSelecionada = prompt("Informe a data para o relatório (AAAA-MM-DD):");
+    if (dataSelecionada) {
+        window.location.href = `/relatorio-cargas-confirmadas/pdf/${dataSelecionada}`;
+    }
+}
+    </script>
+</body>
+
+</html>
